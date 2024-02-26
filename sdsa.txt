@@ -1,0 +1,219 @@
+https://coolors.co/palette/6b9080-a4c3b2-cce3de-eaf4f4-f6fff8
+
+// login
+ const onSubmit = (data) => {
+        axios.post("http://localhost:3001/user/login", data)
+            .then((response) => {
+                localStorage.setItem("accessToken",response.data);
+                setAuthState(true);
+                // console.log(response.data);
+                navigate('/userui');
+            })
+            .catch((error) => {
+                // Handle error if needed
+                alert('worng pass or username');
+                console.error(error);
+            });
+    }
+
+
+//old AuthMiddleware
+const {verify}   = require('jsonwebtoken');
+
+const validateToken = function(req, res, next){
+    const accessToken = req.header('accessToken');
+
+    if (!accessToken) {
+        return res.status(401).json({ error: 'Access token is missing' });
+    }
+ 
+    try {
+        // Use environment variable for the secret key
+        const secretKey =  "hey";
+
+        // Verify the access token
+        const decodedToken = verify(accessToken, secretKey);
+
+        if (decodedToken) {
+            // Attach the decoded token to the request for later use
+            req.decodedToken = decodedToken;
+            return next();
+        }
+    } catch (err) {
+        return res.status(403).json({ error: 'Invalid access token' });
+    }
+};
+
+module.exports = validateToken
+
+
+//admin login
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const AdminLogin = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:3001/admin/login', {
+        email,
+        password
+      });
+      
+      // Assuming the API returns a token upon successful login
+      const { token } = response.data;
+
+      // Do something with the token, such as storing it in local storage
+      localStorage.setItem('adminToken', token);
+
+      // Redirect or perform any other action upon successful login
+      // For example:
+      // history.push('/dashboard');
+    } catch (error) {
+      // Handle login errors
+      console.error('Login error:', error);
+      setError('Invalid credentials');
+    }
+  };
+
+  return (
+    <div>
+      <h2>Admin Login</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Email:</label>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </div>
+        {error && <div>{error}</div>}
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  );
+};
+
+export default AdminLogin;
+
+
+
+//admin panel
+
+import React, {useState, useEffect} from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import axios from 'axios';
+import Singup from './Singup';
+import UserCreate from '../Components/UserCreate';
+
+const AdminPanel = () => {
+  const initialValues = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  };
+
+  const [teachers, setTeachers] = useState([]);
+  useEffect(() => {
+    // Fetch the list of teachers from the backend API
+    const fetchTeachers = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/teachers');
+        setTeachers(response.data);
+      } catch (error) {
+        console.error('Failed to fetch teachers:', error);
+      }
+    };
+
+    fetchTeachers();
+  }, []);
+  const validationSchema = Yup.object().shape({
+    firstName: Yup.string().required('First Name is required'),
+    lastName: Yup.string().required('Last Name is required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    password: Yup.string().required('Password is required')
+  });
+
+  const onSubmit = async (values, { setSubmitting, resetForm }) => {
+    try {
+      const response = await axios.post('http://localhost:3001/teacher/create', values);
+      console.log(response.data);
+      alert('Teacher account created successfully');
+      resetForm();
+    } catch (error) {
+      console.error(error);
+      alert('Failed to create teacher account');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className='admin-panel'>
+       <div className="admin-header">
+      <h2>Admin Panel</h2>
+      </div>
+    <div className="admin-main">
+      <div className='form-contianer-admin'>
+      <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+        {({ isSubmitting }) => (
+          <Form className='form1'>
+            <h3>Create Teacher Account</h3>
+            <div>
+              <label className='title' htmlFor="firstName">First Name:</label><br/>
+              <Field placeholder='Enter First name' className='field' type="text" id="firstName" name="firstName" />
+              <ErrorMessage name="firstName" component="div" className="error" />
+            </div>
+            <div>
+              <label className='title' htmlFor="lastName">Last Name:</label><br/>
+              <Field placeholder='Enter last name' className='field' type="text" id="lastName" name="lastName" />
+              <ErrorMessage name="lastName" component="div" className="error" />
+            </div>
+            <div>
+              <label className='title' htmlFor="email">Email:</label><br/>
+              <Field placeholder='Enter email' className='field' type="email" id="email" name="email" />
+              <ErrorMessage name="email" component="div" className="error" />
+            </div>
+            <div>
+              <label className='title' htmlFor="password">Password:</label><br/>
+              <Field placeholder='Enter passowrd' className='field' type="password" id="password" name="password" />
+              <ErrorMessage name="password" component="div" className="error" />
+            </div>
+            <button className='submitbtn' type="submit" disabled={isSubmitting}>Create Account</button>
+          </Form>
+        )}
+      </Formik>
+    </div>
+      <UserCreate></UserCreate>
+  </div>
+  <div className="page2">
+  <div className="teacher-list">
+            <div className='teachers'>
+            <div className='list-header'>
+            <h2>List of Teachers</h2>
+            </div>
+              <div className='teacher-info'>
+              {teachers.map((teacher, index) => (
+              <div key={index} className='teacher-info'>
+                <h2>{teacher.firstName} {teacher.lastName}</h2>
+                <h3>{teacher.email}</h3>
+              </div>
+            ))}
+                </div>              
+            </div>
+          </div>
+  </div>
+    </div>
+    
+  );
+};
+
+export default AdminPanel;

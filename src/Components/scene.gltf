@@ -1,0 +1,302 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "THREE.GLTFExporter"
+  },
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        4
+      ]
+    }
+  ],
+  "scene": 0,
+  "nodes": [
+    {
+      "matrix": [
+        3.1704187393188477,
+        0,
+        0,
+        0,
+        0,
+        0.4321838617324829,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "Cube",
+      "extras": {
+        "name": "Cube"
+      },
+      "mesh": 0
+    },
+    {
+      "matrix": [
+        -0.2908646775532549,
+        -0.05518904522473682,
+        -0.9551712124420509,
+        0,
+        -0.7711009254164625,
+        0.6045246338968102,
+        0.19988339509297365,
+        0,
+        0.5663931554665306,
+        0.7946723905074929,
+        -0.21839119484224845,
+        0,
+        -5.74533748626709,
+        5.727193607439616,
+        4.170674323696353,
+        1
+      ],
+      "name": "Light",
+      "extras": {
+        "name": "Light"
+      },
+      "extensions": {
+        "KHR_lights_punctual": {
+          "light": 0
+        }
+      }
+    },
+    {
+      "matrix": [
+        0.8826082124228036,
+        -0.01296031480921776,
+        -0.4699306700650462,
+        0,
+        -0.1380784266709014,
+        0.948382756271571,
+        -0.28548996925403247,
+        0,
+        0.4493741835294362,
+        0.3168630786173323,
+        0.8352608683992516,
+        0,
+        11.436,
+        9.0693359375,
+        21.36296844482422,
+        1
+      ],
+      "name": "abhaycamera",
+      "extras": {
+        "name": "abhaycamera"
+      },
+      "camera": 0
+    },
+    {
+      "matrix": [
+        -0.2908646775532549,
+        -0.05518904522473682,
+        -0.9551712124420509,
+        0,
+        -0.7711009254164625,
+        0.6045246338968102,
+        0.19988339509297365,
+        0,
+        0.5663931554665306,
+        0.7946723905074929,
+        -0.21839119484224845,
+        0,
+        8.939528465270996,
+        4.64464807510376,
+        -0.30174827575683594,
+        1
+      ],
+      "name": "Light001",
+      "extras": {
+        "name": "Light.001"
+      },
+      "extensions": {
+        "KHR_lights_punctual": {
+          "light": 1
+        }
+      }
+    },
+    {
+      "name": "testingModel2.glb",
+      "children": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 1008,
+      "target": 34962,
+      "byteStride": 12
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1008,
+      "byteLength": 1008,
+      "target": 34962,
+      "byteStride": 12
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2016,
+      "byteLength": 672,
+      "target": 34962,
+      "byteStride": 8
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2688,
+      "byteLength": 360,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 3048,
+      "uri": "data:application/octet-stream;base64,AACAPwAAgD8AAIC/AACAPwAAgD8AAIC/AACAPwAAgL8AAIC/AACAPwAAgL8AAIC/AACAPwAAgL8AAIC/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAgL8AAIA/AACAPwAAgL8AAIA/AACAPwAAgL8AAIA/AACAvwAAgD8AAIC/AACAvwAAgD8AAIC/AACAvwAAgL8AAIC/AACAvwAAgL8AAIC/AACAvwAAgL8AAIC/AACAvwAAgD8AAIA/AACAvwAAgD8AAIA/AACAvwAAgL8AAIA/AACAvwAAgL8AAIA/AACAvwAAgL8AAIA/xc4qvwAAgL8AAIC/xc4qvwAAgL8AAIC/xc4qvwAAgD8AAIA/xc4qvwAAgD8AAIA/xc4qvwAAgD8AAIA/xc4qvwAAgL8AAIA/xc4qvwAAgL8AAIA/xc4qvwAAgD8AAIC/xc4qvwAAgD8AAIC/xc4qvwAAgD8AAIC/AACAv6DcDEEAAIC/AACAv6DcDEEAAIC/AACAv6DcDEEAAIC/AACAv6DcDEEAAIA/AACAv6DcDEEAAIA/AACAv6DcDEEAAIA/xc4qv6DcDEEAAIA/xc4qv6DcDEEAAIA/xc4qv6DcDEEAAIA/xc4qv6DcDEEAAIC/xc4qv6DcDEEAAIC/xc4qv6DcDEEAAIC/zswPPwAAgL8AAIA/zswPPwAAgL8AAIA/zswPPwAAgD8AAIC/zswPPwAAgD8AAIC/zswPPwAAgD8AAIC/z8wPPwAAgL8AAIC/z8wPPwAAgL8AAIC/z8wPPwAAgD8AAIA/z8wPPwAAgD8AAIA/z8wPPwAAgD8AAIA/AACAP068AkEAAIC/AACAP068AkEAAIC/AACAP068AkEAAIC/AACAP068AkEAAIA/AACAP068AkEAAIA/AACAP068AkEAAIA/zswPP068AkEAAIC/zswPP068AkEAAIC/z8wPP068AkEAAIA/z8wPP068AkEAAIA/AACAP9ocvkAAAIA/AACAP9ocvkAAAIA/z8wPP9ocvkAAAIA/z8wPP9ocvkAAAIA/z8wPP9ocvkAAAIA/AACAP9ocvkAAAIC/AACAP9ocvkAAAIC/zswPP9ocvkAAAIC/zswPP9ocvkAAAIC/zswPP9ocvkAAAIC/DLk1v068AkH6/3+/DLk1v068AkH6/3+/DLk1v068AkH6/3+/C7k1v068AkEDAIA/C7k1v068AkEDAIA/C7k1v068AkEDAIA/C7k1v9ocvkADAIA/C7k1v9ocvkADAIA/C7k1v9ocvkADAIA/DLk1v9ocvkD6/3+/DLk1v9ocvkD6/3+/DLk1v9ocvkD6/3+/AAAAAAAAAAAAAIC/AACAPwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AACAPwAAAAAAAACAAAAAAAAAAAAAAIA/AACAPwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AACAPwAAAAAAAACAAACAvwAAAAAAAACAAAAAAAAAAAAAAIC/AACAvwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AACAvwAAAAAAAACAAAAAAAAAAAAAAIA/AACAvwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AAAAAAAAgL8AAACAAAAAAAAAAIAAAIC/AAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAACAvwAAAAAAAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAACAvwAAAAAAAACAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AACAvwAAAAAAAAAAAAAAAAAAAIAAAIC/AAAAAAAAgD8AAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AACAvwAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAAAAAAAAAAAAAIA/AACAPwAAAAAAAACAAACAvwAAAAAAAAAAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIC/AACAPwAAAAAAAACAAACAvwAAAAAAAAAAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AACAvwAAAAAAAAAAAAAAgAAAAAAAAIC/AAAAAAAAgD8AAACAAACAvwAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAACAvwAAAAAAAAAAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AACAvwAAAAAAAAAAAAAAAAAAgL8AAACAAAAAgAAAAAAAAIC/AAAgPwAAAD8AACA/AAAAPwAAwD4AAAA/AADAPgAAAD8AAMA+AAAAPwAAID8AAIA+AAAgPwAAgD4AAMA+AACAPgAAwD4AAIA+AADAPgAAgD4AACA/AABAPwAAID8AAEA/AADAPgAAQD8AAAA+AAAAPwAAwD4AAEA/AAAgPwAAgD8AACA/AAAAAAAAwD4AAIA/AAAAPgAAgD4AAMA+AAAAAJ6YKj4AAAA/AADAPthZNT8AACA/gGIqPdhZVT8AAIA+2FlVPwAAgD6emCo+AACAPgAAwD6AYio9AAAgP9hZNT/YWVU/AAAAP9hZVT8AAAA/AAAgPwAAQD8AACA/AABAPwAAYD8AAAA/AAAgPwAAgD8AACA/AAAAAAAAYD8AAIA+AAAgP4BiKj3YWVU/AACAPthZVT8AAIA+AAAgP9hZNT/YWVU/AAAAP9hZVT8AAAA/NPOjPgAAgD4AAMA+aOZHPmYGLj8AAAA/AAAgP2YGDj9mBi4/AAAAPzTzoz4AAAA/AADAPmYGDj9mBi4/AACAPgAAID9o5kc+ZgYuPwAAgD4AACA/AAAAPwAAID8AAAA/AAAgPwAAAD8AACA/AACAPgAAID8AAIA+AAAgPwAAgD4AACA/ZgYOP2YGLj8AAAA/AAAgP2jmRz5mBi4/AACAPgAAID8AAIA+AAAgPwAAgD5mBi4/AACAPmYGLj8AAIA+AAAgP2jmRz4AACA/AAAAPwAAID8AAAA/ZgYuPwAAAD9mBi4/AAAAPwAAID9mBg4/ZgYuPwAAAD8AACA/ZgYOP2YGLj8AAAA/ZgYuPwAAgD4AACA/aOZHPmYGLj8AAIA+ZgYuPwAAgD5mBi4/AACAPgAAID9o5kc+ZgYuPwAAAD9mBi4/AAAAPwAAID9mBg4/GAAdACkAGAApACYAGgAWABAAGgAQABMAEQAPAAoAEQAKAAwALwACAAcALwAHACoABAABAAYABAAGAAkAMAAtAAAAMAAAAAMADgALABsADgAbABUADQAUABkADQAZABIAKwAyABYAKwAWABoALgAcABcALgAXADMAKAAgACMAKAAjACUAEAAWACQAEAAkACIAGwALAB8AGwAfACcACgAPACEACgAhAB4AQgA+ADcAQgA3ADwACAAFADIACAAyACsAFQAbAC0AFQAtADAAFAAvACoAFAAqABkANQA7AD0ANQA9ADgAPwBEADYAPwA2ADkAQwBHADoAQwA6ADQAOgBHAFMAOgBTAEkALAAxAEAALABAAEUAAAAtAEcAAABHAEMABgABAEQABgBEAD8AMgAFAD4AMgA+AEIAUQBOAEsAUQBLAEgAPQA7AEoAPQBKAE0ARgBBAE8ARgBPAFIAQgA8AEwAQgBMAFAA"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 84,
+      "max": [
+        1,
+        8.803863525390625,
+        1.0000003576278687
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 84,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 84,
+      "max": [
+        0.875,
+        1
+      ],
+      "min": [
+        0.125,
+        0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 180,
+      "max": [
+        83
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.06662593863608139,
+          0.76052450467022,
+          0.7991027380100881,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      },
+      "doubleSided": true,
+      "name": "Material"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "mode": 4,
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "extensions": {
+    "KHR_lights_punctual": {
+      "lights": [
+        {
+          "name": "Light",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "intensity": 50,
+          "type": "point"
+        },
+        {
+          "name": "Light001",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "intensity": 50,
+          "type": "point"
+        }
+      ]
+    }
+  },
+  "cameras": [
+    {
+      "type": "perspective",
+      "perspective": {
+        "aspectRatio": 1.7777777777777777,
+        "yfov": 0.38117990863556156,
+        "zfar": 100.14,
+        "znear": 0
+      },
+      "name": "PerspectiveCamera"
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_lights_punctual"
+  ]
+}
