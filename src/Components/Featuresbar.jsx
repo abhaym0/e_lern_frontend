@@ -22,9 +22,12 @@ const Featuresbar = () => {
         <li><a href="/pdff">Material</a></li>
       </ul>
       <ul className='ul4'>
-        <li><a href="/profile">Dashboard</a></li>
+        {/* <li><a href="/profile">Dashboard</a></li> */}
         {localStorage.getItem("accessToken")&&(
+          <span>
         <li><a href="" onClick={handleLogout}>Logout</a></li>
+        <li><a href="" onClick={handleLogout}>Dashboard</a></li>
+        </span>
         )}
       </ul>
     </div>

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../Components/Navbar';
 import Courses from '../Components/Courses';
 import Featuresbar from '../Components/Featuresbar';
 import Navigation from '../Components/Navigation';
 import { motion } from 'framer-motion';
 import Transition from '../Components/Transition';
+import axios from 'axios';
 
 const Userui = () => {
   const [selectedCategory, setSelectedCategory] = useState('ALL COURSES');
@@ -13,6 +14,28 @@ const Userui = () => {
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
   };
+
+  if (localStorage.getItem('accessToken')) {
+    const data = ''
+    useEffect(() => {
+      axios.post('http://localhost:3001/user/purchasedCourses',data,
+      {
+        headers:{
+          accessToken: localStorage.getItem('accessToken')
+        }
+      })
+        .then((res) => {
+          console.log(res.data);
+          const purchasedCourses = res.data.map((course) => {
+            return course.courseId;
+          });
+          console.log(purchasedCourses);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, [])
+  }
 
   return (
     <div className='userui'>

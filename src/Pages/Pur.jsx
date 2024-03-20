@@ -10,7 +10,7 @@ const Pur = () => {
     const name = localStorage.getItem("CourseName");
     const pur = () => {
         console.log(ID,name)
-        const data = 'dads'
+        const data = ''
         axios.post('http://localhost:3001/courses/purchase', data, {
             headers: {
                 accessToken: localStorage.getItem('accessToken'),
@@ -25,9 +25,11 @@ const Pur = () => {
         })
         navigate(`/course/${ID}`)
         localStorage.removeItem('ID');
-        localStorage.removeItem('CourseName');
-
+        localStorage.removeItem('CourseName'); 
     }
+
+    
+
     const cancel = () => {
         navigate('/userui')
     }

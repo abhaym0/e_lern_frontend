@@ -74,7 +74,7 @@ const locomotiveScroll = new LocomotiveScroll();
           <Route path='/notes' element={<Notes></Notes>}></Route>
           <Route path='/pur' element={<Pur></Pur>}></Route>
           <Route path='/pdff' element={<PDFDownloadComponent></PDFDownloadComponent>}></Route>
-          <Route path='/pdf' element={<PdfViewer></PdfViewer>}></Route>
+          {/* <Route path='/pdf' element={<PdfViewer></PdfViewer>}></Route> */}
           <Route path='/quizegame' element={<QuizGame></QuizGame>}></Route>
           <Route path='/3d' element={<ModelViewer></ModelViewer>}></Route>
           <Route path='/admin/login' element={<AdminLoginForm></AdminLoginForm>}></Route>
@@ -82,6 +82,7 @@ const locomotiveScroll = new LocomotiveScroll();
           <Route path='/teacher/login' element = {<TeacherLogin></TeacherLogin>}></Route>
           <Route path='/teacher/panel' element = {<TeacherPanel></TeacherPanel>}></Route>
           <Route path='/testAuth' element={<TestingAuth></TestingAuth>}></Route>
+          <Route path='/assignment' element={<AssignmentSubmission></AssignmentSubmission>}></Route>
         </Routes>
       </Router>
       </AuthContext.Provider>

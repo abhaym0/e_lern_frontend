@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+.app{
+  overflow-x: hidden;
+}
+
 .logo {
   height: 40px;
   width: 40px;
@@ -201,17 +205,14 @@ li {
   background: white;
 }
 
-
-
 .header {
   padding: 20px;
   font-size: 4vh;
 
 }
 
-
 .hero h1 {
-  font-size: 9vh;
+  font-size: 5.7vw;
   font-weight: 500;
 
 }
@@ -349,6 +350,10 @@ li {
   position: relative;
   z-index: 1;
 
+}
+
+.card:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.237), 0 6px 20px 0 rgba(0, 0, 0, 0.202);
 }
 
 .card-con {
@@ -1004,5 +1009,27 @@ p {
   border: 1px solid #787777;
   margin: 5px;
   font-size: 1.06em;
+}
+
+/* media queries for mobile devices */
+@media (max-width: 768px) {
+  .hero h1{
+    font-size: 12vw;
+  }
+
+  .nav {
+    /* height: 12vh; */
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+    display: flex;
+    background: #dfdfdf;
+    position: absolute;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    padding: 20px 28px;
+    /* background: transparent; */
+    /* background-color: rgb(234, 249, 174); */
+  }
 }
 
