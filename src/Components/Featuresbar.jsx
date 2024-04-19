@@ -3,7 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Featuresbar = () => {
-  const navigate = useNavigate(); // Move the useNavigate hook inside the component
+  const navigate = useNavigate();
+  const profile = ()=> {
+    navigate('/profile');
+  }
 
   const handleLogout = () => {
     const Token = localStorage.getItem('accessToken');
@@ -26,7 +29,7 @@ const Featuresbar = () => {
         {localStorage.getItem("accessToken")&&(
           <span>
         <li><a href="" onClick={handleLogout}>Logout</a></li>
-        <li><a href="" onClick={handleLogout}>Dashboard</a></li>
+        <li><a href="" onClick={profile}>Dashboard</a></li>
         </span>
         )}
       </ul>

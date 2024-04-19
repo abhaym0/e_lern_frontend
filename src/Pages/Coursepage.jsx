@@ -5,8 +5,6 @@ import ReactPlayer from 'react-player';
 import * as Yup from 'yup';
 import Videos from '../Components/Videos';
 import { Formik, Form, Field, ErrorMessage, } from 'formik';
-import Terms from './Terms';
-import Quiz from '../Components/Quiz';
 
 const Coursepage = () => {
   const { id } = useParams();
@@ -20,6 +18,7 @@ const Coursepage = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
+  const [state, setState] = useState(false);
 
   const toggleEnroll = () => {
     setIsEnroll(!isEnroll);
@@ -58,7 +57,7 @@ const Coursepage = () => {
   })
   const navigater = useNavigate()
   if (localStorage.getItem('accessToken')) {
-    console.log('user');
+    // console.log('user');
   } else {
     navigater('/signup')
   }
@@ -105,13 +104,14 @@ const Coursepage = () => {
     axios
       .get(`http://localhost:3001/courses/byId/${id}`)
       .then((response) => {
-        console.log(response.data);
-        setCoursesObject(response.data);
-        setCurrentVideoUrl(response.data.videoLectures[0]?.url || '');
-        setQuizzes(response.data.quizzes);
+        console.log(response.data)
+        setCoursesObject(response.data)
+        setCurrentVideoUrl(response.data.videoLectures[0]?.url || '')
+        setQuizzes(response.data.quizzes)
+        setState(response.data.accsess)
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err)
       });
   }, []);
 
@@ -182,9 +182,11 @@ const Coursepage = () => {
           </div>
           <div className="titlel">
             <h3>{courseObject.title}</h3>
-            <button className="btn-grp btn-1" onClick={toggleEnroll}>
-              Enroll Yourself
-            </button>
+          {!state ? (
+            <button className="btn-grp">purcahse</button>
+          ) : (
+            <button className='btn-grp'>Enroll for free</button>
+          )}
             <button className="btn-grp" onClick={toggleDivVisibility}>
               See syllabus
             </button>
@@ -246,7 +248,7 @@ const Coursepage = () => {
           ))}
         </div>
       </div>
-      <div className="quizzes-container">
+      {/* <div className="quizzes-container">
         {quizzes && quizzes.map((quiz, index) => (
           <div key={index} className="quiz-item">
             <h3>{quiz.title}</h3>
@@ -278,7 +280,7 @@ const Coursepage = () => {
           <h2>Your Score: {score}/{quizzes.length}</h2>
           <button onClick={restartQuiz}>Restart Quiz</button>
         </div>
-      )}
+      )} */}
     </div>
 
   );

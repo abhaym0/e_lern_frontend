@@ -217,3 +217,136 @@ const AdminPanel = () => {
 };
 
 export default AdminPanel;
+
+
+CreateCourse component with drag and drop thumbanail feature here is the code:
+import React, { useState } from 'react';
+import { Formik, Form, Field } from 'formik';
+import axios from 'axios';
+import { useDropzone } from 'react-dropzone';
+
+const CreateCourse = () => {
+  const [videoLectures, setVideoLectures] = useState([{ thumbnail: null, title: '', url: '' }]);
+
+  const addVideoLecture = () => {
+    setVideoLectures([...videoLectures, { thumbnail: null, title: '', url: '' }]);
+  };
+
+  const removeVideoLecture = (index) => {
+    const updatedVideoLectures = [...videoLectures];
+    updatedVideoLectures.splice(index, 1);
+    setVideoLectures(updatedVideoLectures);
+  };
+
+  const handleVideoLectureChange = (index, field, value) => {
+    const updatedVideoLectures = [...videoLectures];
+    updatedVideoLectures[index][field] = value;
+    setVideoLectures(updatedVideoLectures);
+  };
+
+  const onDropThumbnail = (acceptedFiles, index) => {
+    const file = acceptedFiles[0];
+    if (file) {
+      handleVideoLectureChange(index, 'thumbnail', file);
+    }
+  };
+
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: 'image/*',
+    onDrop: (acceptedFiles) => onDropThumbnail(acceptedFiles, videoLectures.length - 1),
+  });
+
+  return (
+    <Formik
+      initialValues={{
+        title: '',
+        theme: '',
+        instructor: '',
+        syllabus: '',
+        videoLectures: [],
+      }}
+      onSubmit={async (values, { setSubmitting }) => {
+        try {
+          const formData = new FormData();
+
+          formData.append('title', values.title);
+          formData.append('theme', values.theme);
+          formData.append('instructor', values.instructor);
+          formData.append('syllabus', values.syllabus);
+
+          // Append video lectures to FormData
+          values.videoLectures.forEach((lecture, index) => {
+            formData.append(`videoLectures[${index}].title`, lecture.title);
+            formData.append(`videoLectures[${index}].url`, lecture.url);
+            if (lecture.thumbnail) {
+              formData.append(`videoLectures[${index}].thumbnail`, lecture.thumbnail);
+            }
+          });
+
+          // Make API request using Axios
+          const response = await axios.post('http://localhost:3001/courses/create', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          });
+
+          console.log(response.data);
+          alert('Course created successfully!');
+        } catch (error) {
+          console.error('Error creating course:', error);
+          alert('Failed to create course. Please try again.');
+        }
+
+        setSubmitting(false);
+      }}
+    >
+      {({ handleSubmit }) => (
+        <Form onSubmit={handleSubmit}>
+          {/* Course details */}
+          <label htmlFor="title">Title</label><br />
+          <Field type="text" name="title" /><br />
+          <label htmlFor="theme">Theme</label><br />
+          <Field type="text" name="theme" /><br />
+          <label htmlFor="instructor">Instructor Name</label><br />
+          <Field type="text" name="instructor" /><br />
+          <label htmlFor="syllabus">Syllabus</label><br />
+          <Field as="textarea" name="syllabus" /><br />
+
+          {/* Video Lectures */}
+          <button type="button" onClick={addVideoLecture}>Add Video Lecture</button>
+          {videoLectures.map((lecture, index) => (
+            <div key={index}>
+              <div {...getRootProps()} style={{ border: '1px dashed #ccc', padding: '20px', textAlign: 'center' }}>
+                <input {...getInputProps()} />
+                <p>Drag 'n' drop a file here, or click to select a file</p>
+                {lecture.thumbnail && (
+                  <p>
+                    File selected: {lecture.thumbnail.name} ({(lecture.thumbnail.size / 1024).toFixed(2)} KB)
+                  </p>
+                )}
+              </div>
+              <Field
+                type="text"
+                name={`videoLectures[${index}].title`}
+                placeholder="Video Title"
+                onChange={(e) => handleVideoLectureChange(index, 'title', e.target.value)}
+              />
+              <Field
+                type="text"
+                name={`videoLectures[${index}].url`}
+                placeholder="Video URL"
+                onChange={(e) => handleVideoLectureChange(index, 'url', e.target.value)}
+              />
+              <button type="button" onClick={() => removeVideoLecture(index)}>Remove</button>
+            </div>
+          ))}
+
+          {/* Submit button */}
+          <button type="submit">Submit</button>
+        </Form>
+      )}
+    </Formik>
+  );
+};
+
+export default CreateCourse;

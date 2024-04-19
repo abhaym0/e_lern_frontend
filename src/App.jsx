@@ -28,7 +28,7 @@ import PDFDownloadComponent from './Components/PdfC';
 import QuizGame from './Components/QuizeGame';
 import ModelViewer from './Pages/ModelViewer';
 import Pur from './Pages/Pur';
-
+import CreateCourse from './Pages/createCourse';
 
 function App() {
 const locomotiveScroll = new LocomotiveScroll();
@@ -83,6 +83,7 @@ const locomotiveScroll = new LocomotiveScroll();
           <Route path='/teacher/panel' element = {<TeacherPanel></TeacherPanel>}></Route>
           <Route path='/testAuth' element={<TestingAuth></TestingAuth>}></Route>
           <Route path='/assignment' element={<AssignmentSubmission></AssignmentSubmission>}></Route>
+          <Route path='/createCourse' element={<CreateCourse></CreateCourse>}></Route>
         </Routes>
       </Router>
       </AuthContext.Provider>

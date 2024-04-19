@@ -19,14 +19,21 @@ const AdminPanel = () => {
   if (!localStorage.getItem('accessToken')) {
     navigater('/admin/login');
   } else {
-    let data = 'heryasd'
+    let data = ''
     const Token = localStorage.getItem('accessToken');
     axios.post("http://localhost:3001/admin/isAdmin", data, {
       headers: {
         accessToken: Token
       }
     }).then((response) => {
-      console.log('admin workingg');
+      if(response.data == 1){
+        console.log('you are good to go');
+        console.log(response);
+      }else{
+        localStorage.removeItem('accessToken');
+        navigater('/admin/login')
+      }
+      console.log(response)
 
     }).catch((err) => {
       console.log('you might not be admin')
@@ -148,6 +155,10 @@ const AdminPanel = () => {
     navigater('/admin/login');
   };
 
+  const cc = () => {
+    navigater('/createCourse');
+  }
+
   const [showDeleteButton, setShowDeleteButton] = useState([]);
   useEffect(() => {
     // Initialize showDeleteButton state with an array of false values
@@ -157,6 +168,7 @@ const AdminPanel = () => {
     <div className='admin-panel'>
       <div className="admin-header">
         <span>Admin Panel</span>
+        <button className='admin-logout' onClick={cc}>Create Course</button>
         <button className='admin-logout' onClick={logout}>LogOut</button>
       </div>
       <div className="admin-main">
