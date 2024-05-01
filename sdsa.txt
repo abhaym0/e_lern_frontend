@@ -220,6 +220,7 @@ export default AdminPanel;
 
 
 CreateCourse component with drag and drop thumbanail feature here is the code:
+
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import axios from 'axios';

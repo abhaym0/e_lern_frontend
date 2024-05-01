@@ -27,10 +27,10 @@ const Featuresbar = () => {
       <ul className='ul4'>
         {/* <li><a href="/profile">Dashboard</a></li> */}
         {localStorage.getItem("accessToken")&&(
-          <span>
-        <li><a href="" onClick={handleLogout}>Logout</a></li>
+          <>
         <li><a href="" onClick={profile}>Dashboard</a></li>
-        </span>
+        <li><a href="" onClick={handleLogout}>Logout</a></li>
+        </>
         )}
       </ul>
     </div>

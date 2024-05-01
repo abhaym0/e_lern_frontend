@@ -12,7 +12,7 @@ const Profile = () => {
     }
   }, [])
   const [user, setUser] = useState('')
-  let data = 'heryasd'
+  let data = ''
   useEffect(() => {
     axios.post('http://localhost:3001/user/profile', data, {
       headers: {
@@ -46,7 +46,7 @@ const Profile = () => {
             localStorage.removeItem('accessToken')
             navigate('/')
           }
-        }}>Logout</button>
+        }}>Log out</button>
       </div>
       <div className='courses-list'>
         <ul>

@@ -62,7 +62,7 @@ const Coursepage = () => {
     navigater('/signup')
   }
   const onSubmit = (data) => {
-    axios.post(`http://localhost:3001/comment/addComment/${id}`, data, {
+    axios.post(`http://localhost:3001/comment/addComment/${id}`, data = '', {
       headers: {
         accessToken: localStorage.getItem('accessToken')
       }
@@ -185,7 +185,7 @@ const Coursepage = () => {
           {!state ? (
             <button className="btn-grp">purcahse</button>
           ) : (
-            <button className='btn-grp'>Enroll for free</button>
+            <button className='btn-grp' style={{backgroundColor: '#10a37f', color:'#dadada'}}>Enroll for free</button>
           )}
             <button className="btn-grp" onClick={toggleDivVisibility}>
               See syllabus

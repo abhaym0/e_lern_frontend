@@ -70,6 +70,11 @@ li {
   padding: 10px;
   text-align: center;
   display: block;
+  transition: all 0.3s ease;
+}
+
+.btn:hover{
+  background: #cfcfcf;
 }
 
 .masker-container {
@@ -460,6 +465,7 @@ p {
   align-items: center;
   position: relative;
   z-index: 1;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 20px;
   max-height: 100vh;
@@ -490,6 +496,8 @@ p {
 .ul4 {
   display: flex;
   padding-right: 30px;
+  /* align-items: center; */
+  /* justify-content: center; */
 }
 
 .userui h1 {
@@ -572,6 +580,15 @@ p {
   border-radius: 10px;
   align-items: start;
   margin: 15px 0px;
+  transition: all ease .3s;
+  cursor: pointer;
+}
+
+.video-card:hover{
+  background: #cccccc;
+  .video-title{
+    background-color: black;
+  }
 }
 
 .video-card-image {
@@ -590,13 +607,20 @@ p {
   background: #fff;
   color: black;
   font-size: 2vh;
+  transition: all ease .3s;
 
 }
+
 
 .video-title {
   margin-top: 15px;
   max-width: 100%;
 }
+
+/* .video-title h3:hover{
+  background-color: #cccccc;
+  color: #ffff;
+} */
 
 .coursepage-container h1 {
   text-align: center;
@@ -643,11 +667,18 @@ p {
 
 .btn-grp {
   background: #fff;
-  padding: 7px;
+  padding: 10px;
   border: 1px solid #fff;
   border-radius: 7px;
   font-weight: 600;
-  /* letter-spacing: .7px; */
+  font-size: 18px;
+  letter-spacing: .7px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-grp:hover{
+  background: #cfcfcf;
 }
 
 .btn-1 {
@@ -1009,6 +1040,13 @@ p {
   border: 1px solid #787777;
   margin: 5px;
   font-size: 1.06em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.logout:hover{
+  background: #cfcfcf;
+  color: #000;
 }
 
 /* media queries for mobile devices */
@@ -1031,5 +1069,102 @@ p {
     /* background: transparent; */
     /* background-color: rgb(234, 249, 174); */
   }
+}
+
+
+.createCourse{
+  padding: 10px;
+  background: white;
+ 
+}
+
+.createCourse input{
+  width: 100%;
+  height: 60px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1.28px solid #787777;
+}
+
+.createCourse input::placeholder{
+  padding: 5px;
+  font-size: 18px;
+}
+
+.createCourse p{
+  font-size: 29px;
+  background: white;
+}
+
+.txt{
+  height: 80px;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.createCourse .error-cc{
+  color: rgba(245, 12, 12, 0.681);
+  background: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 17px;
+}
+
+.createCourse .vid-lec{
+  /* border: 1px solid rgba(0, 0, 0, 0.361); */
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  background: #dfdfdf;
+}
+
+.vid-lec p{
+  width: 200px;
+}
+
+.vid-lec p,.vid-lec input{
+  background: #dfdfdf;
+
+}
+
+.rmbtn{
+  padding: 12px;
+  font-size: 16px;
+  background: rgb(239, 79, 79);
+  color: #dfdfdf;
+  margin: 15px;
+  letter-spacing: 1.7px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.rmbtn:hover{
+  box-shadow: 0px 0px 10px 0px #0000007e;
+  scale: 1.03;
+}
+
+.submitbtn{
+  padding: 12px;
+  font-size: 16px;
+  background: #10a37f;
+  color: #dfdfdf;
+  margin: 10px;
+  letter-spacing: 1.7px;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.submitbtn:hover{
+  box-shadow: 0px 0px 10px 0px #0000007e;
+  scale: 1.03;
+}
+
+.lec-header{
+  margin: 10px 10px 10px 10px;
 }
 

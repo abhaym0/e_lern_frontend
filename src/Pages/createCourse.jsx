@@ -75,50 +75,56 @@ const CreateCourse = () => {
   return (
     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
       {({ isSubmitting }) => (
-        <Form>
+        <Form className='createCourse'>
+          <h1 style={{background:"white", margin:"10px"}}>Create Course</h1>
+          {/* <h1>Create Course</h1> */}
           {/* Course details */}
-          <label htmlFor="dp">Course Thumbnail URL</label>
-          <Field type="text" name="dp" />
-          <ErrorMessage name="dp" component="div" />
+          <p htmlFor="title">Title</p><br />
+          <Field placeholder = 'Course Title' type="text" name="title" /><br />
+          <ErrorMessage className='error-cc' name="title" component="div" />
+          
+          <p htmlFor="dp">Course Thumbnail URL</p><br />
+          <Field placeholder = 'Course Thumbnail URL ' type="text" name="dp" /><br />
+          <ErrorMessage className='error-cc' name="dp" component="div" />
 
-          <label htmlFor="title">Title</label>
-          <Field type="text" name="title" />
-          <ErrorMessage name="title" component="div" />
 
-          <label htmlFor="them">Theme</label>
-          <Field type="text" name="them" />
-          <ErrorMessage name="them" component="div" />
+          <p htmlFor="them">Theme</p><br />
+          <Field placeholder = 'Enter Theme' type="text" name="them" /><br />
+          <ErrorMessage className='error-cc' name="them" component="div" />
 
-          <label htmlFor="instructor">Instructor Name</label>
-          <Field type="text" name="instructor" />
-          <ErrorMessage name="instructor" component="div" />
+          <p htmlFor="instructor">Instructor Name</p><br />
+          <Field placeholder = 'Enter Instructor Name' type="text" name="instructor" /><br />
+          <ErrorMessage className='error-cc' name="instructor" component="div" />
 
-          <label htmlFor="syllabus">Syllabus</label>
-          <Field as="textarea" name="syllabus" />
-          <ErrorMessage name="syllabus" component="div" />
+          <p htmlFor="syllabus">Syllabus</p><br />
+          <Field placeholder = 'Write here...' as="textarea" type='textare' className='txt' name="syllabus"  /><br />
+          <ErrorMessage className='error-cc' name="syllabus" component="div" />
 
           {/* Video Lectures */}
+          <div className="vid-lec">
           {videoLectures.map((lecture, index) => (
-            <div key={index}>
-              <label htmlFor={`videoLectures[${index}].title`}>Video Title</label>
-              <Field type="text" name={`videoLectures[${index}].title`} />
-              <ErrorMessage name={`videoLectures[${index}].title`} component="div" />
+            <div key={index} >
+              <h1 className='lec-header'>Lecture  - {index + 1}</h1>
+              <p htmlFor={`videoLectures[${index}].title`}>Video Title</p><br />
+              <Field placeholder = 'Video Title' type="text" name={`videoLectures[${index}].title`} /><br />
+              <ErrorMessage className='error-cc ' name={`videoLectures[${index}].title`} component="div" style={{background:"#dfdfdf"}}/>
 
-              <label htmlFor={`videoLectures[${index}].url`}>Video URL</label>
-              <Field type="text" name={`videoLectures[${index}].url`} />
-              <ErrorMessage name={`videoLectures[${index}].url`} component="div" />
+              <p htmlFor={`videoLectures[${index}].url`}>Video URL</p><br />
+              <Field placeholder = 'Video URL' type="text" name={`videoLectures[${index}].url`} /><br />
+              <ErrorMessage className='error-cc' name={`videoLectures[${index}].url`} component="div" style={{background:"#dfdfdf"}} />
 
-              <label htmlFor={`videoLectures[${index}].thumbnail`}>Thumbnail URL</label>
-              <Field type="text" name={`videoLectures[${index}].thumbnail`} />
-              <ErrorMessage name={`videoLectures[${index}].thumbnail`} component="div" />
+              <p htmlFor={`videoLectures[${index}].thumbnail`}>Thumbnail URL</p><br />
+              <Field placeholder = 'Thumbnail URL' type="text" name={`videoLectures[${index}].thumbnail`} /><br />
+              <ErrorMessage className='error-cc' name={`videoLectures[${index}].thumbnail`} component="div" style={{background:"#dfdfdf"}} />
 
-              <button type="button" onClick={() => removeVideoLecture(index)}>Remove</button>
+              <button type="button" onClick={() => removeVideoLecture(index)} className='rmbtn'>Remove</button>
             </div>
           ))}
-          <button type="button" onClick={addVideoLecture}>Add Video Lecture</button>
+          <button type="button" onClick={addVideoLecture} className='submitbtn'>Add Video Lecture</button><br />
+          </div>
 
           {/* Submit button */}
-          <button type="submit" disabled={isSubmitting}>
+          <button type="submit" disabled={isSubmitting} className='submitbtn'>
             Submit
           </button>
         </Form>

@@ -10,7 +10,7 @@ const Navigation = ({ onCategorySelect }) => {
       <ul className='navul'>
         <li><button className='li-btn' onClick={() => handleCategoryClick('ALL COURSES')}>ALL COURSES</button></li>
         <li><button className='li-btn' onClick={() => handleCategoryClick('FRONT-END')}>FRONT-END</button></li>
-        <li><button className='li-btn' onClick={() => handleCategoryClick('FRONT-END')}>FRONT-END</button></li>
+        <li><button className='li-btn' onClick={() => handleCategoryClick('BACK-END')}>BACK-END</button></li>
       </ul> 
     </div>
   );

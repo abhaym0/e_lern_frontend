@@ -11,8 +11,9 @@ const Userui = () => {
   const [selectedCategory, setSelectedCategory] = useState('ALL COURSES');
 
   // Function to handle course selection from Navigation
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
+  const  handleCategorySelect = async(category) => {
+    await setSelectedCategory(category);
+    // console.log(category);
   };
 
   if (localStorage.getItem('accessToken')) {
@@ -25,11 +26,14 @@ const Userui = () => {
         }
       })
         .then((res) => {
-          console.log(res.data);
+          console.log(res.data)
+          res.data.map((val)=>{
+            localStorage.setItem('purchasedCourses',val.courseId)
+          })
           const purchasedCourses = res.data.map((course) => {
             return course.courseId;
           });
-          console.log(purchasedCourses);
+          // console.log(purchasedCourses)
         })
         .catch((err) => {
           console.log(err);

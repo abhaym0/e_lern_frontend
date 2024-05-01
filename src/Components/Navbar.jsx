@@ -24,7 +24,7 @@ const Navbar = () => {
         <a href="/signup" className='btn'>Sign Up</a>
       </li>
       <li>
-        <a href="/login">Log In</a>
+        <a href="/login" className='btn'>Log In</a>
       </li>
     </ul>
     </motion.div>
